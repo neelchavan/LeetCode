@@ -12,4 +12,16 @@ public class MajorityElementInArray {
         }
         return -1;
     }
+
+    public List<Integer> majorityElementII(){ //HashMapFreqPattern
+        int[] nums = {2,2,1,2};
+        List<Integer> list = new ArrayList<>();
+        HashMap<Integer, Integer> seen = new HashMap<>();
+        for(int num : nums){
+            seen.put(num, seen.getOrDefault(num,0)+1);
+            if ((seen.get(num)>nums.length/3) && !list.contains(num))
+                list.add(num);
+        }
+       return list;
+    }
 }
